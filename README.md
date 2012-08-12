@@ -1,7 +1,7 @@
 flot.interpolate
 ================
 
-Data interpolation plugin for plot library
+Data interpolation plugin for flot library
 Source: http://pastebin.com/77WhsF4d
 Author: PEtterEkrann
 
