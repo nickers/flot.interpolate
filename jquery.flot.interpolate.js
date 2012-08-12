@@ -15,7 +15,7 @@
 
         //Read in Data Values
         var isTime = norder.length > 0 && norder[0][0] instanceof Date;
-        console.log('isTime: ', isTime);
+
         if (isTime) {
             for (var i = 0; i < norder.length; i++) {
                 points.push({ x: norder[i][0].getTime(), y: norder[i][1], A: 0, B: 0, C: 0, D: 0 });
