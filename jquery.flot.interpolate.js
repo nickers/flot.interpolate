@@ -15,9 +15,10 @@
 
         //Read in Data Values
         var isTime = norder.length > 0 && norder[0][0] instanceof Date;
+        console.log('isTime: ', isTime);
         if (isTime) {
             for (var i = 0; i < norder.length; i++) {
-                points.push({ t: norder[i][0], x: norder[i][0].getTime(), y: norder[i][1], A: 0, B: 0, C: 0, D: 0 });
+                points.push({ x: norder[i][0].getTime(), y: norder[i][1], A: 0, B: 0, C: 0, D: 0 });
             }
         } else {
             for (var i = 0; i < norder.length; i++) {
@@ -81,11 +82,11 @@
 
                 if (ys < 0) ys = 0;
                 
-                interPolated.push([xs, ys]);
+                interPolated.push([isTime ? new Date(xs) : xs, ys]);
             }
         }
         val = points[points.length - 1];
-        interPolated.push([isTime ? val.t : val.x, val.y]);
+        interPolated.push([isTime ? new Date(val.x) : val.x, val.y]);
         return interPolated;
     }
 })(jQuery);
@@ -93,7 +94,7 @@
 
 
 (function($) {
-    var options = {series: { "interpolate": true, "interpolateSteps": 10 }};
+    var options = {series: { "interpolate": false, "interpolateSteps": 10 }};
 
     init = function(plot) {
         
